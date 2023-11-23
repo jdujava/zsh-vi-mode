@@ -653,6 +653,12 @@ function zvm_paste_from_clipboard() {
   CUTBUFFER=$(xsel -b -o)
 }
 
+# Yank between the cursor position and the end of the line.
+function zvm_forward_yank_line() {
+  CUTBUFFER=${BUFFER:$CURSOR:$#BUFFER}
+  zvm_copy_to_clipboard
+}
+
 # Escape non-printed characters
 function zvm_escape_non_printed_characters() {
   local str=
@@ -3422,6 +3428,7 @@ function zvm_init() {
   zvm_define_widget zvm_backward_kill_region
   zvm_define_widget zvm_backward_kill_line
   zvm_define_widget zvm_forward_kill_line
+  zvm_define_widget zvm_forward_yank_line
   zvm_define_widget zvm_kill_line
   zvm_define_widget zvm_viins_undo
   zvm_define_widget zvm_select_surround
@@ -3517,6 +3524,7 @@ function zvm_init() {
   zvm_bindkey visual 'd' zvm_vi_delete
   zvm_bindkey visual 'x' zvm_vi_delete
   zvm_bindkey visual 'y' zvm_vi_yank
+  zvm_bindkey vicmd  'Y' zvm_forward_yank_line
   zvm_bindkey vicmd  'p' zvm_vi_put_after
   zvm_bindkey vicmd  'P' zvm_vi_put_before
   zvm_bindkey visual 'p' zvm_vi_replace_selection
