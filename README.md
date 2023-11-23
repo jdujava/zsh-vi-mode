@@ -1,3 +1,10 @@
+My fork of `zsh-vi-mode`.
+
+To set upstream remote to original zsh-vi-mode repo:
+```sh
+git remote add upstream git@github.com:jeffreytse/zsh-vi-mode.git
+```
+
 <div align="center">
   <a href="https://github.com/jeffreytse/zsh-vi-mode">
     <img alt="vi-mode →~ zsh" src="https://user-images.githubusercontent.com/9413601/103399068-46bfcb80-4b7a-11eb-8741-86cff3d85a69.png" width="600">
@@ -231,7 +238,7 @@ programs = {
   };
 };
 ```
-  
+
 Or if you prefer `home-manager`:
 
 ```nix
@@ -386,7 +393,7 @@ option.
 - `sr"'`  : Change `"` to `'`
 
 Note that key sequences must be pressed in fairly quick succession to avoid a timeout. You may extend this timeout with the [`ZVM_KEYTIMEOUT` option](#readkey-engine).
-  
+
 #### How to select surround text object?
 
 - `vi"`   : Select the text object inside the quotes
@@ -672,7 +679,7 @@ ZVM_MODE_VISUAL_LINE
 ZVM_MODE_REPLACE
 ```
 
-For updating the vi mode indicator, we should add our commands to 
+For updating the vi mode indicator, we should add our commands to
 `zvm_after_select_vi_mode_commands`. For example:
 
 ```zsh
