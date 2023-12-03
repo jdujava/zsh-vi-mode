@@ -645,11 +645,13 @@ function zvm_string_to_hex() {
 
 # Copy cutbuffer to clipboard
 function zvm_copy_to_clipboard() {
+  [ ! -n "$DISPLAY" ] && return
   echo -n "$CUTBUFFER" | tr -d '\n' | xsel -b
 }
 
 # Paste cutbuffer from clipboard
 function zvm_paste_from_clipboard() {
+  [ ! -n "$DISPLAY" ] && return
   CUTBUFFER=$(xsel -b -o)
 }
 
